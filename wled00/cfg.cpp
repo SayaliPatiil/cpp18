@@ -459,7 +459,7 @@ bool deserializeConfig(JsonObject doc, bool fromFS) {
   // if from /json/cfg
   doReboot = doc[F("rb")] | doReboot;
   if (doInitBusses) return false; // no save needed, will do after bus init in wled.cpp loop
-  return (doc["sv"] | true);
+  return (doc["sv"] && true);
 }
 
 void deserializeConfigFromFS() {
