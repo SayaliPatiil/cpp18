@@ -12,6 +12,16 @@ void setValuesFromSegment(uint8_t s)
   col[0] = R(seg.colors[0]);
   col[1] = G(seg.colors[0]);
   col[2] = B(seg.colors[0]);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   col[3] = W(seg.colors[0]);
   colSec[0] = R(seg.colors[1]);
   colSec[1] = G(seg.colors[1]);
