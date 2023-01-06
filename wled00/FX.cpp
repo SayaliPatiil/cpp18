@@ -284,6 +284,14 @@ uint16_t WS2812FX::mode_breath(void) {
     var = sin16(counter) / 103; //close to parabolic in range 0-8192, max val. 23170
   }
   
+	uint16_t WS2812FX::mode_breath(void) {
+  uint16_t var = 0;
+  uint16_t counter = (now * ((SEGMENT.speed >> 3) +10));
+  counter = (counter >> 2) + (counter >> 4); //0-16384 + 0-2048
+  if (counter < 16384) {
+    if (counter > 8192) counter = 8192 - (counter - 8192);
+    var = sin16(counter) / 103; //close to parabolic in range 0-8192, max val. 23170
+  }
   uint8_t lum = 30 + var;
   for(uint16_t i = 0; i < SEGLEN; i++) {
     setPixelColor(i, color_blend(SEGCOLOR(1), color_from_palette(i, true, PALETTE_SOLID_WRAP, 0), lum));
