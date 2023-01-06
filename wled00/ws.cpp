@@ -36,6 +36,10 @@ void wsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventTyp
         { //scope JsonDocument so it releases its buffer
           #ifdef WLED_USE_DYNAMIC_JSON
           DynamicJsonDocument doc(JSON_BUFFER_SIZE);
+          
+          
+          
+          
           #else
           if (!requestJSONBufferLock(11)) return;
           #endif
